@@ -1,0 +1,90 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-ink: var(--theme-ink);
+  --color-paper: var(--theme-paper);
+  --color-forest: var(--theme-forest);
+  --color-lime: var(--theme-lime);
+  --color-coral: var(--theme-coral);
+  --color-surface: var(--theme-surface);
+  --color-surface-muted: var(--theme-surface-muted);
+  --color-danger: var(--theme-danger);
+  --color-coral-strong: var(--theme-coral-strong);
+  --color-chart-muted: #657371;
+  --color-chart-grid: #172a2b12;
+  --color-chart-steps: #245c4f;
+  --color-chart-water: #4c9ca3;
+  --font-sans: var(--font-manrope), sans-serif;
+  --font-display: var(--font-space-grotesk), sans-serif;
+  --shadow-soft: var(--theme-shadow-soft);
+}
+
+:root {
+  color-scheme: light;
+  --theme-ink: #172a2b;
+  --theme-paper: #f4f5ef;
+  --theme-forest: #245c4f;
+  --theme-lime: #c5e374;
+  --theme-coral: #dc7457;
+  --theme-surface: #ffffff;
+  --theme-surface-muted: #ffffffa6;
+  --theme-danger: #8b3f2e;
+  --theme-coral-strong: #9a4e38;
+  --theme-shadow-soft: 0 16px 48px rgba(23, 42, 43, 0.08);
+  --color-chart-muted: #657371;
+  --color-chart-grid: #172a2b12;
+  --color-chart-steps: #245c4f;
+  --color-chart-water: #4c9ca3;
+}
+
+:root.dark {
+  color-scheme: dark;
+  --theme-ink: #e7efeb;
+  --theme-paper: #111a18;
+  --theme-forest: #316b5b;
+  --theme-lime: #d1eb8a;
+  --theme-coral: #ec987d;
+  --theme-surface: #1b2824;
+  --theme-surface-muted: #18231f;
+  --theme-danger: #ffb3a2;
+  --theme-coral-strong: #f2a188;
+  --theme-shadow-soft: 0 16px 48px rgba(0, 0, 0, 0.3);
+  --color-chart-muted: #a7b9b1;
+  --color-chart-grid: #e7efeb20;
+  --color-chart-steps: #7cc5ad;
+  --color-chart-water: #74c6ce;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100%;
+  background: var(--theme-paper);
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  color: var(--theme-ink);
+  background-color: var(--theme-paper);
+  background-image: radial-gradient(
+    color-mix(in srgb, var(--theme-ink) 7%, transparent) 0.7px,
+    transparent 0.7px
+  );
+  background-size: 8px 8px;
+  font-family: var(--font-manrope), sans-serif;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+::selection {
+  color: var(--theme-ink);
+  background: var(--theme-lime);
+}

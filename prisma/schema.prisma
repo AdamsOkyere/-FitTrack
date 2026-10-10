@@ -1,0 +1,40 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum ActivityType {
+  WALK
+  WATER
+  SLEEP
+}
+
+model User {
+  id           String        @id @default(cuid())
+  name         String
+  email        String        @unique
+  passwordHash String
+  createdAt    DateTime      @default(now())
+  stepGoal     Int           @default(8000)
+  waterGoalMl  Int           @default(2000)
+  sleepGoalHrs Float         @default(8)
+  activities   ActivityLog[]
+}
+
+model ActivityLog {
+  id             String       @id @default(cuid())
+  userId         String
+  type           ActivityType
+  value          Float
+  secondaryValue Float?
+  date           DateTime
+  note           String?
+  createdAt      DateTime     @default(now())
+  user           User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, type, date])
+}
